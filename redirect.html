@@ -40,23 +40,47 @@
             <br>
             <br>
             <div class="col-md-8">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title" id="userDetails">E-Mail</h5>
-                            <div id="profile-div"></div>
-                            <div id="mailbox" class="list-group">
-                                <button id="emptyMailbox" type="button" class="list-group-item list-group-item-action" disabled>This Mailbox is Currently Empty</button>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary" id="readMail" onclick="getMail()">Retrieve Mail</button>
-
-                        </div>
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <h5 class="card-title" id="userDetails">Email Details</h5>
+                        <div id="profile-div"></div>
+                        <br>
+                        <div>Select an Email for Details</div>
                     </div>
                 </div>
             </div>
         </div>
         <br>
+        <br>
+        <div class="row" style="margin:auto">
+            <div class="col-md-12">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title" id="userDetails">E-Mail</h5>
+                            <div id="profile-div"></div>
+                            <div class="table-responsive">
+                            <table id="mailbox" class="table table-bordered table-hover table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <!--<th scope="col">id</th> -->
+                                        <th scope="col">Sent</th>
+                                        <th scope="col">Attachment</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Subject</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mailbox-body"></tbody>
+                            </table>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary" id="readMail" onclick="getMail()">Retrieve Mail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             (function (){
@@ -91,22 +115,38 @@
             }
 
             async function getMail(){
-                const response = await fetch("https://graph.microsoft.com/v1.0/me/messages", {
+                const response = await fetch("https://graph.microsoft.com/v1.0/me/messages?$count=true&top=20", {
                     method: "GET",
                     headers: {"Content-Type": "application/json"}, 
                     headers: {"Authorization": localStorage.getItem("bearer")}
                 });
 
                 const jsonData = await response.json(); 
+                console.log(jsonData);
+                window.odata = jsonData;
                 const allMail = jsonData.value;
-
-                const currentMailbox = document.getElementById("mailbox");
-
+                const currentMailbox = document.getElementById("mailbox-body");
+                
                 allMail.forEach( mail => {
-                    const buttonPropertiesObject = { className: "list-group-item list-group-item-action", type: "button", innerText: mail.subject };
-                    const newButton = Object.assign(document.createElement("button"), buttonPropertiesObject);
+                    const messageID = mail.id;
+                    const messagePreview = mail.bodyPreview;
+                    const subject = mail.subject;
 
-                    currentMailbox.appendChild(newButton);
+                    const row = document.createElement("tr");
+                    const tdSentAt = Object.assign(document.createElement("td"), { innerText: mail.sentDateTime, className: "text-nowrap text-left" });
+                    const tdSenderName = Object.assign(document.createElement("td"), { innerText: mail.sender.emailAddress.name, className: "text-nowrap text-left" });
+                    const tdSenderAddress = Object.assign(document.createElement("td"), { innerText: mail.sender.emailAddress.address, className: "text-nowrap text-left" });
+                    const tdSubject = Object.assign(document.createElement("td"), { innerText: mail.subject, className: "text-nowrap text-left" });
+                    const tdHasAttachments = Object.assign(document.createElement("td"), { innerText: mail.hasAttachments === true ? "📎" : "", className: "text-nowrap" });
+                    const tdMessagePreview = document.createElement("td");
+
+                    row.appendChild(tdSentAt);
+                    row.appendChild(tdHasAttachments);
+                    row.appendChild(tdSenderName);
+                    row.appendChild(tdSenderAddress);
+                    row.appendChild(tdSubject);
+
+                    currentMailbox.appendChild(row);
                 });
 
             }

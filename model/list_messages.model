@@ -1,57 +1,16 @@
 {
-    "@odata.etag": "W/\"CQAAABYAAABEd4TRGslaSa0lUNqq2dGUAAACAwD5\"",
-    "id": "AQMkADAwATMwMAItNWY4Ny03NTQ3LTAwAi0wMAoARgAAAy2aQYkcq05Bq_3Ap8ab_vsHAER3hNEayVpJrSVQ2qrZ0ZQAAAIBDAAAAER3hNEayVpJrSVQ2qrZ0ZQAAAACBOgsAAAA",
-    "createdDateTime": "2023-05-16T06:07:01Z",
-    "lastModifiedDateTime": "2023-05-16T06:07:03Z",
-    "changeKey": "CQAAABYAAABEd4TRGslaSa0lUNqq2dGUAAACAwD5",
-    "categories": [],
-    "receivedDateTime": "2023-05-16T06:07:02Z",
-    "sentDateTime": "2023-05-16T06:06:58Z",
-    "hasAttachments": false,
-    "internetMessageId": "<DA.B0.37205.28D13646@gc.mta1vrest.cc.prd.sparkpost>",
-    "subject": "Get Fired Up—Your Order Just Shipped",
-    "bodyPreview": "So Close You Can Almost Taste It\r\n\r\n\r\nGRILLS HARDWOOD WHY TRAEGER DEALERS\r\n\r\n\r\nOrder #: 2411400 | Order date: May 13, 2023\r\n\r\nYour package is on the way!\r\nHi Michael,\r\nWe don't blame you if you're getting hungry already, because your order is officially o",
-    "importance": "normal",
-    "parentFolderId": "AQMkADAwATMwMAItNWY4Ny03NTQ3LTAwAi0wMAoALgAAAy2aQYkcq05Bq_3Ap8ab_vsBAER3hNEayVpJrSVQ2qrZ0ZQAAAIBDAAAAA==",
-    "conversationId": "AQQkADAwATMwMAItNWY4Ny03NTQ3LTAwAi0wMAoAEABGbxbnra7UQZGRANVZDazQ3Q==",
-    "conversationIndex": "AQHZh7yhRm8W562u1EGRkdVZDazQ3Q==",
-    "isDeliveryReceiptRequested": null,
-    "isReadReceiptRequested": false,
-    "isRead": false,
-    "isDraft": false,
-    "webLink": "https://outlook.live.com/owa/?ItemID=AQMkADAwATMwMAItNWY4Ny03NTQ3LTAwAi0wMAoARgAAAy2aQYkcq05Bq%2B3Ap8ab%2BvsHAER3hNEayVpJrSVQ2qrZ0ZQAAAIBDAAAAER3hNEayVpJrSVQ2qrZ0ZQAAAACBOgsAAAA&exvsurl=1&viewmodel=ReadMessageItem",
-    "inferenceClassification": "focused",
-    "body": {
-        "contentType": "html",
-        "content": "<html></html>" 
-    },
-   "sender": {
-       "emailAddress": {
-           "name": "Traeger Grills",
-           "address": "no_reply@traegergrills.narvar.com"
-       }
-    },
-    "from": {
-        "emailAddress": {
-            "name": "Traeger Grills",
-            "address": "no_reply@traegergrills.narvar.com"
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('bb8775a4-4d8c-42cf-a1d4-4d58c2bb668f')/messages(sender,subject)",
+        "value": [
+        {
+            "@odata.etag": "W/\"CQAAABYAAADHcgC8Hl9tRZ/hc1wEUs1TAAAwR4Hg\"",
+            "id": "AAMkAGUAAAwTW09AAA=",
+            "subject": "You have late tasks!",
+            "sender": {
+                "emailAddress": {
+                    "name": "Microsoft Planner",
+                    "address": "noreply@Planner.Office365.com"
+                }
+            }
         }
-    },
-   "toRecipients": [{
-       "emailAddress": {
-           "name": "codingtogether@outlook.com",
-           "address": "codingtogether@outlook.com"
-       }
-   }],
-   "ccRecipients": [],
-   "bccRecipients": [],
-   "replyTo": [{
-       "emailAddress": {
-       "name": "no_reply@traegergrills.narvar.com",
-       "address": "no_reply@traegergrills.narvar.com"
-       }
-   }],
-   "flag": {
-       "flagStatus": "notFlagged"
-   }
+        ]
 }
